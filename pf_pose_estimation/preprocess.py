@@ -34,11 +34,11 @@ def mesh_to_tsdf(mesh_path, vol_dim=101, save_path=None):
 
 if __name__ == '__main__':
     print("Start generating TSDF from mesh model. This may take a few minutes...")
-    models = "/home/lsy/dataset/YCB_Video_Dataset/models_16k/"   # CHANGE THIS PATH
-    objects = ['001_pringles']  # CHANGE THIS PATH
+    models = "./sample_data/"   # CHANGE THIS PATH
+    objects = ['006_mustard_bottle']  # CHANGE THIS PATH
     for obj in objects:
         print(f"start processing {obj}")
         tic = time.time()
-        mesh_path = os.path.join(models, obj, "google_16k", "textured.obj")  # CHANGE THIS PATH
+        mesh_path = os.path.join(models, obj, "textured.obj")  # CHANGE THIS PATH
         obj_tsdf_path = mesh_to_tsdf(mesh_path, vol_dim=101)
         print(f"Convert mesh to TSDF in {time.time() - tic}s.")
